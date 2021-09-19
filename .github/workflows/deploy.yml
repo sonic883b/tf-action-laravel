@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sonic883b 
-shonansurvivors
-/
-laravel-fargate-app
-Public template
-generated from shonansurvivors/docker-laravel
-1
-5
-0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-laravel-fargate-app/.github/workflows/deploy.yml
-@shonansurvivors
-shonansurvivors remove test logic
-Latest commit 08bd3c9 on 13 Jun
- History
- 1 contributor
-89 lines (74 sloc)  2.97 KB
-  
 name: deploy
 
 on:
