@@ -3,3 +3,8 @@
 
 # Docker Compose
 .env
+
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
