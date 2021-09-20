@@ -32,10 +32,10 @@ resource "aws_ecr_lifecycle_policy" "nginx" {
 
 module "nginx" {
   source = "../../../../modules/ecr"
-  name = "example-prod-${local.service_name}-nginx"
+  name   = "example-prod-${local.service_name}-nginx"
 }
 
 module "php" {
   source = "../../../../modules/ecr"
-  name = "example-prod-${local.service_name}-php"
+  name   = "example-prod-${local.service_name}-php"
 }
