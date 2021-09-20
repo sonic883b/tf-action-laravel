@@ -10,12 +10,12 @@
       ],
       "environment": [],
       "essential": true,
-      "image": "{{ tfstate `data.aws_ecr_repository.php.repository_url` }}:{{ must_env `IMAGE_TAG` }}",
+      "image": "{{ tfstate `data.aws_ecr_repository.nginx.repository_url` }}:{{ must_env `IMAGE_TAG` }}",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group":  "{{ tfstate `data.aws_cloudwatch_log_group.nginx.name` }}",
-          "awslogs-region":  "{{ must_env `AWS_REGION` }}",
+          "awslogs-group": "{{ tfstate `data.aws_cloudwatch_log_group.nginx.name` }}",
+          "awslogs-region": "{{ must_env `AWS_REGION` }}",
           "awslogs-stream-prefix": "ecs"
         }
       },
@@ -60,7 +60,7 @@
       "secrets": [
         {
           "name": "APP_KEY",
-          "valueFrom":  "/{{ must_env `SYSTEM_NAME` }}/{{ must_env `ENV_NAME` }}/{{ must_env `SERVICE_NAME` }}/APP_KEY"
+          "valueFrom": "/{{ must_env `SYSTEM_NAME` }}/{{ must_env `ENV_NAME` }}/{{ must_env `SERVICE_NAME` }}/APP_KEY"
         }
       ],
       "volumesFrom": []
@@ -78,7 +78,7 @@
   "tags": [
     {
       "key": "Env",
-      "value": "{{ must_env `ENV_NAME` }}" 
+      "value": "{{ must_env `ENV_NAME` }}"
     },
     {
       "key": "System",
@@ -86,10 +86,10 @@
     },
     {
       "key": "Name",
-      "value": "{{ must_env `SYSTEM_NAME` }}-{{ must_env `ENV_NAME` }}-{{must_env `SERVICE_NAME` }}" 
+      "value": "{{ must_env `SYSTEM_NAME` }}-{{ must_env `ENV_NAME` }}-{{ must_env `SERVICE_NAME` }}"
     }
   ],
-  "taskRoleArn": "arn:aws:iam::148869596539:role/example-prod-foobar-ecs-task",
+  "taskRoleArn": "{{ tfstate `data.aws_iam_role.ecs_task.arn` }}",
   "volumes": [
     {
       "host": {},
